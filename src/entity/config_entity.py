@@ -39,7 +39,6 @@ class DataTransformationConfig:
                                                      DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
                                                      PREPROCSSING_OBJECT_FILE_NAME)
     
-
 @dataclass
 class ModelTrainerConfig:
     model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
@@ -64,7 +63,7 @@ class ModelPusherConfig:
     bucket_name: str = MODEL_BUCKET_NAME
     s3_model_key_path: str = MODEL_FILE_NAME
 
-# @dataclass
-# class VehiclePredictorConfig:
-#     model_file_path: str = MODEL_FILE_NAME
-#     model_bucket_name: str = MODEL_BUCKET_NAME
+@dataclass
+class VehiclePredictorConfig:
+    model_file_path: str = MODEL_FILE_NAME
+    model_bucket_name: str = MODEL_BUCKET_NAME

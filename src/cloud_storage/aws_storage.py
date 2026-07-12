@@ -8,7 +8,7 @@ from mypy_boto3_s3.service_resource import Bucket
 from src.exception import MyException
 from botocore.exceptions import ClientError
 from pandas import DataFrame,read_csv
-import pickle
+import dill
 
 
 class SimpleStorageService:
@@ -127,7 +127,7 @@ class SimpleStorageService:
             model_file = model_dir + "/" + model_name if model_dir else model_name
             file_object = self.get_file_object(model_file, bucket_name)
             model_obj = self.read_object(file_object, decode=False)
-            model = pickle.loads(model_obj)
+            model = dill.loads(model_obj)
             logging.info("Production model loaded from S3 bucket.")
             return model
         except Exception as e:
